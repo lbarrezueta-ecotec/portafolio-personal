@@ -12,6 +12,10 @@
     --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* Reseteo y Base */
 * {
     margin: 0;
@@ -24,7 +28,6 @@ body {
     background-color: var(--bg-dark);
     color: var(--text-main);
     line-height: 1.6;
-    scroll-behavior: smooth;
 }
 
 ul { list-style: none; }
@@ -38,6 +41,7 @@ a { text-decoration: none; color: inherit; }
 
 .section-padding {
     padding: 100px 0;
+    scroll-margin-top: 80px;
 }
 
 .bg-alt {
