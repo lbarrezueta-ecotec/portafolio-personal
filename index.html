@@ -35,9 +35,6 @@
                     <a href="#proyectos" class="btn-primary">Ver Proyectos</a>
                     <a href="#contacto" class="btn-secondary">Contactar</a>
                 </div>
-                <div class="hero-image-container">
-                    <img src="img/perfil.jpg" alt="Luis Carlos Barrezueta" class="profile-img">
-                </div>
             </div>
         </section>
 
@@ -95,9 +92,9 @@
                             <img src="img/biometrico.png" alt="Sistema Biométrico">
                         </div>
                         <div class="project-body">
-                            <h3>Sistema Biométrico</h3>
-                            <p>Implementación de seguridad avanzada mediante reconocimiento biométrico para control de acceso.</p>
-                            <a href="#" class="btn-text">Detalles <i class="fas fa-chevron-right"></i></a>
+                            <h3 class="proj-title">Sistema Biométrico</h3>
+                            <p class="proj-desc">Implementación de seguridad avanzada mediante reconocimiento biométrico para control de acceso.</p>
+                            <a href="javascript:void(0)" class="btn-text open-modal" data-image="img/biometrico.png" data-title="Sistema Biométrico" data-desc="Implementación de seguridad avanzada mediante reconocimiento biométrico para control de acceso.">Detalles <i class="fas fa-chevron-right"></i></a>
                         </div>
                     </article>
 
@@ -106,9 +103,9 @@
                             <img src="img/juego en html.png" alt="Juego en HTML">
                         </div>
                         <div class="project-body">
-                            <h3>Juego en HTML</h3>
-                            <p>Desarrollo de una experiencia interactiva utilizando HTML, CSS y JS puro.</p>
-                            <a href="#" class="btn-text">Detalles <i class="fas fa-chevron-right"></i></a>
+                            <h3 class="proj-title">Juego en HTML</h3>
+                            <p class="proj-desc">Desarrollo de una experiencia interactiva utilizando HTML, CSS y JS puro.</p>
+                            <a href="javascript:void(0)" class="btn-text open-modal" data-image="img/juego en html.png" data-title="Juego en HTML" data-desc="Desarrollo de una experiencia interactiva utilizando HTML, CSS y JS puro.">Detalles <i class="fas fa-chevron-right"></i></a>
                         </div>
                     </article>
 
@@ -117,9 +114,9 @@
                             <img src="img/plantilla para solicitudes de bienes y raices (admin).png" alt="Bienes Raíces Admin">
                         </div>
                         <div class="project-body">
-                            <h3>Bienes Raíces (Panel Admin)</h3>
-                            <p>Sistema de gestión administrativa para solicitudes de bienes raíces.</p>
-                            <a href="#" class="btn-text">Detalles <i class="fas fa-chevron-right"></i></a>
+                            <h3 class="proj-title">Bienes Raíces (Panel Admin)</h3>
+                            <p class="proj-desc">Sistema de gestión administrativa para solicitudes de bienes raíces.</p>
+                            <a href="javascript:void(0)" class="btn-text open-modal" data-image="img/plantilla para solicitudes de bienes y raices (admin).png" data-title="Bienes Raíces (Panel Admin)" data-desc="Sistema de gestión administrativa para solicitudes de bienes raíces.">Detalles <i class="fas fa-chevron-right"></i></a>
                         </div>
                     </article>
 
@@ -128,9 +125,9 @@
                             <img src="img/plantilla para solicitudes de bienes y raices (usuario).png" alt="Bienes Raíces Usuario">
                         </div>
                         <div class="project-body">
-                            <h3>Bienes Raíces (Portal Usuario)</h3>
-                            <p>Interfaz intuitiva para usuarios que solicitan servicios de bienes raíces.</p>
-                            <a href="#" class="btn-text">Detalles <i class="fas fa-chevron-right"></i></a>
+                            <h3 class="proj-title">Bienes Raíces (Portal Usuario)</h3>
+                            <p class="proj-desc">Interfaz intuitiva para usuarios que solicitan servicios de bienes raíces.</p>
+                            <a href="javascript:void(0)" class="btn-text open-modal" data-image="img/plantilla para solicitudes de bienes y raices (usuario).png" data-title="Bienes Raíces (Portal Usuario)" data-desc="Interfaz intuitiva para usuarios que solicitan servicios de bienes raíces.">Detalles <i class="fas fa-chevron-right"></i></a>
                         </div>
                     </article>
 
@@ -139,9 +136,9 @@
                             <img src="img/sistema para evaluacion.png" alt="Sistema de Evaluación">
                         </div>
                         <div class="project-body">
-                            <h3>Sistema de Evaluación</h3>
-                            <p>Herramienta digital para la creación y gestión de evaluaciones académicas.</p>
-                            <a href="#" class="btn-text">Detalles <i class="fas fa-chevron-right"></i></a>
+                            <h3 class="proj-title">Sistema de Evaluación</h3>
+                            <p class="proj-desc">Herramienta digital para la creación y gestión de evaluaciones académicas.</p>
+                            <a href="javascript:void(0)" class="btn-text open-modal" data-image="img/sistema para evaluacion.png" data-title="Sistema de Evaluación" data-desc="Herramienta digital para la creación y gestión de evaluaciones académicas.">Detalles <i class="fas fa-chevron-right"></i></a>
                         </div>
                     </article>
 
@@ -150,9 +147,9 @@
                             <img src="img/taberna.png" alt="Taberna">
                         </div>
                         <div class="project-body">
-                            <h3>Taberna Digital</h3>
-                            <p>Proyecto conceptual de gestión de inventario y pedidos para establecimientos.</p>
-                            <a href="#" class="btn-text">Detalles <i class="fas fa-chevron-right"></i></a>
+                            <h3 class="proj-title">Taberna Digital</h3>
+                            <p class="proj-desc">Proyecto conceptual de gestión de inventario y pedidos para establecimientos.</p>
+                            <a href="javascript:void(0)" class="btn-text open-modal" data-image="img/taberna.png" data-title="Taberna Digital" data-desc="Proyecto conceptual de gestión de inventario y pedidos para establecimientos.">Detalles <i class="fas fa-chevron-right"></i></a>
                         </div>
                     </article>
 
@@ -235,6 +232,47 @@
         </div>
     </footer>
 
+    <!-- Modal para Detalles del Proyecto -->
+    <div id="projectModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Proyecto">
+            <div class="modal-info">
+                <h2 id="modalTitle">Título del Proyecto</h2>
+                <p id="modalDesc">Descripción detallada del proyecto.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('projectModal');
+        const modalImg = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const closeBtn = document.querySelector('.modal-close');
+
+        document.querySelectorAll('.open-modal').forEach(btn => {
+            btn.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                modalImg.src = btn.getAttribute('data-image');
+                modalTitle.textContent = btn.getAttribute('data-title');
+                modalDesc.textContent = btn.getAttribute('data-desc');
+                document.body.style.overflow = 'hidden'; // Evitar scroll al abrir modal
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
 </body>
 </html>
-<!-- Versi�n 1.1 - Ajustes de accesibilidad -->
+<!-- Versi�n 1.1 - Ajustes de accesibilidad -->
