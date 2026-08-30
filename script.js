@@ -61,6 +61,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 3. EVENTOS (addEventListener) ---
 
+    // Efecto de Aparición al Hacer Scroll (Requisito 2 y 3)
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+        revealElements.forEach(el => {
+            const elementTop = el.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (elementTop < windowHeight - 100) {
+                el.classList.add('active');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll); // Ejecutar al cargar para secciones visibles
+
     // Eventos para los botones de abrir modal (Requisito 2)
     document.querySelectorAll('.open-modal').forEach(btn => {
         btn.addEventListener('click', () => {
