@@ -85,6 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
+        const errorElement = document.getElementById('form-error');
+
         // Recopilación de datos en variables
         const formData = {
             name: document.getElementById('name').value,
@@ -94,10 +96,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Uso de la función de validación y condicional
         if (validateForm(formData)) {
+            errorElement.style.display = 'none';
             alert("¡Gracias " + formData.name + "! Tu mensaje ha sido validado y enviado correctamente.");
             contactForm.reset();
         } else {
-            alert("Por favor, completa todos los campos correctamente. El correo electrónico no es válido.");
+            errorElement.textContent = "Por favor, revisa que todos los campos estén llenos y el correo sea válido.";
+            errorElement.style.display = 'block';
         }
     });
 
