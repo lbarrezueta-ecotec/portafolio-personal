@@ -330,7 +330,7 @@ header {
     opacity: 0.8;
 }
 
-.dev-tag, .live-tag {
+.dev-tag, .live-tag, .details-tag, .soon-tag {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -347,7 +347,15 @@ header {
 }
 
 .live-tag {
-    background: #10b981; /* Verde esmeralda para proyectos en vivo */
+    background: #10b981; /* Verde esmeralda */
+}
+
+.details-tag {
+    background: #3b82f6; /* Azul brillante */
+}
+
+.soon-tag {
+    background: #f59e0b; /* Ámbar/Naranja */
 }
 
 .grayscale {

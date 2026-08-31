@@ -86,6 +86,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Evento para proyectos "Próximamente" (Requisito 2 y 3)
+    document.querySelectorAll('.coming-soon').forEach(btn => {
+        btn.addEventListener('click', () => {
+            alert("🚀 ¡Este proyecto está en desarrollo! Estará disponible muy pronto. ¡Mantente atento!");
+        });
+    });
+
     // Evento para cerrar modal
     closeBtn.addEventListener('click', closeProjectModal);
 
