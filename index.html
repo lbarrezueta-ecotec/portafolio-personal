@@ -118,9 +118,16 @@
         <section id="proyectos" class="section-padding">
             <div class="container">
                 <h2 class="section-title">Proyectos</h2>
-                <div class="projects-grid">
+                <!-- Filtro de proyectos por categoría -->
+                <div class="filter-container" id="filter-container">
+                    <button class="filter-btn active" data-filter="todos">Todos</button>
+                    <button class="filter-btn" data-filter="en-vivo">En Vivo</button>
+                    <button class="filter-btn" data-filter="detalles">Detalles</button>
+                    <button class="filter-btn" data-filter="proximamente">Próximamente</button>
+                </div>
+                <div class="projects-grid" id="projects-grid">
                     <!-- Finalizados -->
-                    <article class="project-card">
+                    <article class="project-card" data-category="detalles">
                         <div class="project-img">
                             <img src="img/biometrico.png" alt="Sistema Biométrico">
                         </div>
@@ -131,7 +138,7 @@
                         </div>
                     </article>
 
-                    <article class="project-card">
+                    <article class="project-card" data-category="en-vivo">
                         <div class="project-img">
                             <span class="live-tag">En Vivo</span>
                             <img src="img/juego en html.png" alt="Juego en HTML">
@@ -143,7 +150,7 @@
                         </div>
                     </article>
 
-                    <article class="project-card">
+                    <article class="project-card" data-category="detalles">
                         <div class="project-img">
                             <img src="img/plantilla para solicitudes de bienes y raices (admin).png" alt="Bienes Raíces Admin">
                         </div>
@@ -154,7 +161,7 @@
                         </div>
                     </article>
 
-                    <article class="project-card">
+                    <article class="project-card" data-category="detalles">
                         <div class="project-img">
                             <img src="img/plantilla para solicitudes de bienes y raices (usuario).png" alt="Bienes Raíces Usuario">
                         </div>
@@ -165,7 +172,7 @@
                         </div>
                     </article>
 
-                    <article class="project-card">
+                    <article class="project-card" data-category="detalles">
                         <div class="project-img">
                             <img src="img/sistema para evaluacion.png" alt="Sistema de Evaluación">
                         </div>
@@ -176,7 +183,7 @@
                         </div>
                     </article>
 
-                    <article class="project-card">
+                    <article class="project-card" data-category="en-vivo">
                         <div class="project-img">
                             <span class="live-tag">En Vivo</span>
                             <img src="img/taberna.png" alt="Taberna">
@@ -189,7 +196,7 @@
                     </article>
 
                     <!-- En Desarrollo -->
-                    <article class="project-card in-dev">
+                    <article class="project-card in-dev" data-category="proximamente">
                         <div class="project-img">
                             <img src="img/web interna.jpeg" alt="Web Interna">
                             <span class="dev-tag">En Desarrollo</span>
@@ -201,7 +208,7 @@
                         </div>
                     </article>
 
-                    <article class="project-card in-dev">
+                    <article class="project-card in-dev" data-category="proximamente">
                         <div class="project-img grayscale">
                             <div class="dev-placeholder">
                                 <i class="fas fa-envelope-open-text"></i>
@@ -215,7 +222,7 @@
                         </div>
                     </article>
 
-                    <article class="project-card in-dev">
+                    <article class="project-card in-dev" data-category="proximamente">
                         <div class="project-img grayscale">
                             <div class="dev-placeholder">
                                 <i class="fas fa-robot"></i>
@@ -279,35 +286,7 @@
         </div>
     </div>
 
-    <script>
-        const modal = document.getElementById('projectModal');
-        const modalImg = document.getElementById('modalImage');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalDesc = document.getElementById('modalDesc');
-        const closeBtn = document.querySelector('.modal-close');
-
-        document.querySelectorAll('.open-modal').forEach(btn => {
-            btn.addEventListener('click', () => {
-                modal.style.display = 'flex';
-                modalImg.src = btn.getAttribute('data-image');
-                modalTitle.textContent = btn.getAttribute('data-title');
-                modalDesc.textContent = btn.getAttribute('data-desc');
-                document.body.style.overflow = 'hidden'; // Evitar scroll al abrir modal
-            });
-        });
-
-        closeBtn.addEventListener('click', () => {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
 <!-- Versi�n 1.1 - Ajustes de accesibilidad -->

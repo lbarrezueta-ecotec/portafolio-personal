@@ -12,8 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalTitle = document.getElementById('modalTitle');
     const modalDesc = document.getElementById('modalDesc');
     const closeBtn = document.querySelector('.modal-close');
-    const contactForm = document.getElementById('contact-form');
+    const contactForm = document.querySelector('.contact-form');
     const navLinks = document.querySelectorAll('.nav-links a');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
 
     // --- 2. FUNCIONES ---
 
@@ -59,7 +61,37 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     }
 
+    /**
+     * Filtrar proyectos por categoría
+     * @param {string} category - Categoría a filtrar (todos, en-vivo, detalles, proximamente)
+     */
+    function filterProjects(category) {
+        projectCards.forEach(card => {
+            const cardCategory = card.dataset.category;
+
+            if (category === 'todos' || cardCategory === category) {
+                card.style.display = 'block';
+                card.style.animation = 'fadeIn 0.4s ease-out';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
     // --- 3. EVENTOS (addEventListener) ---
+
+    // Filtro de proyectos (DOM manipulation + eventos click)
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Actualizar estado activo de botones
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Filtrar proyectos
+            const filter = btn.dataset.filter;
+            filterProjects(filter);
+        });
+    });
 
     // Efecto de Aparición al Hacer Scroll (Requisito 2 y 3)
     const revealElements = document.querySelectorAll('.reveal');
@@ -74,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll); // Ejecutar al cargar para secciones visibles
+    window.addEventListener('load', revealOnScroll);
 
     // Eventos para los botones de abrir modal (Requisito 2)
     document.querySelectorAll('.open-modal').forEach(btn => {
@@ -83,13 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const title = btn.getAttribute('data-title');
             const desc = btn.getAttribute('data-desc');
             openProjectModal(img, title, desc);
-        });
-    });
-
-    // Evento para proyectos "Próximamente" (Requisito 2 y 3)
-    document.querySelectorAll('.coming-soon').forEach(btn => {
-        btn.addEventListener('click', () => {
-            alert("🚀 ¡Este proyecto está en desarrollo! Estará disponible muy pronto. ¡Mantente atento!");
         });
     });
 
@@ -104,28 +129,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Evento Submit del Formulario (Requisito 2 y 5)
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-        const errorElement = document.getElementById('form-error');
+            const errorElement = document.getElementById('form-error');
 
-        // Recopilación de datos en variables
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            message: document.getElementById('msg').value
-        };
+            // Recopilación de datos en variables
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('msg').value
+            };
 
-        // Uso de la función de validación y condicional
-        if (validateForm(formData)) {
-            errorElement.style.display = 'none';
-            alert("¡Gracias " + formData.name + "! Tu mensaje ha sido validado y enviado correctamente.");
-            contactForm.reset();
-        } else {
-            errorElement.textContent = "Por favor, revisa que todos los campos estén llenos y el correo sea válido.";
-            errorElement.style.display = 'block';
-        }
-    });
+            // Uso de la función de validación y condicional
+            if (validateForm(formData)) {
+                if (errorElement) errorElement.style.display = 'none';
+                alert("¡Gracias " + formData.name + "! Tu mensaje ha sido validado y enviado correctamente.");
+                contactForm.reset();
+            } else {
+                if (errorElement) {
+                    errorElement.textContent = "Por favor, revisa que todos los campos estén llenos y el correo sea válido.";
+                    errorElement.style.display = 'block';
+                }
+            }
+        });
+    }
 
     // Evento Mouseover para interactividad en el menú (Requisito 2 y 3)
     navLinks.forEach(link => {
