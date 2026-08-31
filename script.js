@@ -78,7 +78,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    /**
+     * Guardar el filtro seleccionado en localStorage
+     * @param {string} category - Categoría seleccionada
+     */
+    function saveFilter(category) {
+        localStorage.setItem('filtroProyectos', category);
+    }
+
+    /**
+     * Recuperar el filtro guardado en localStorage
+     * @returns {string} - Categoría guardada o 'todos' por defecto
+     */
+    function getSavedFilter() {
+        const saved = localStorage.getItem('filtroProyectos');
+        return saved || 'todos';
+    }
+
+    /**
+     * Aplicar el filtro guardado al cargar la página
+     * (Recupera el dato de localStorage y lo usa para un cambio visible)
+     */
+    function restoreFilter() {
+        const savedFilter = getSavedFilter();
+
+        // Marcar el botón correspondiente como activo
+        filterButtons.forEach(btn => {
+            const isActive = btn.dataset.filter === savedFilter;
+            btn.classList.toggle('active', isActive);
+        });
+
+        // Aplicar el filtro guardado a los proyectos
+        filterProjects(savedFilter);
+    }
+
     // --- 3. EVENTOS (addEventListener) ---
+
+    // Restaurar el filtro guardado en localStorage al cargar (Requisito 7)
+    restoreFilter();
 
     // Filtro de proyectos (DOM manipulation + eventos click)
     filterButtons.forEach(btn => {
@@ -87,9 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
             filterButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            // Filtrar proyectos
+            // Filtrar proyectos y guardar la selección en localStorage
             const filter = btn.dataset.filter;
             filterProjects(filter);
+            saveFilter(filter);
         });
     });
 
